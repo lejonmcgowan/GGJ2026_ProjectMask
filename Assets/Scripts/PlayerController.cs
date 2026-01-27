@@ -1,0 +1,61 @@
+using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
+
+public class PlayerController : MonoBehaviour
+{
+    public Rigidbody Rigidbody;
+    public float moveSpeed;
+    public float jumpForce;
+
+
+    public InputAction MoveAction;
+    public InputAction JumpAction;
+    public InputAction InteractAction;
+    
+    public void Awake()
+    {
+        // assign a callback for the "jump" action.
+        JumpAction.performed += ctx => { OnJump(ctx); };
+        InteractAction.performed += ctx => { OnInteract(ctx); };
+    }
+
+    
+    public void Start()
+    {
+        
+    }
+
+    public void Update()
+    {
+        Vector2 moveAmount = MoveAction.ReadValue<Vector2>();
+
+        Rigidbody.linearVelocity =
+            new Vector3(moveAmount.x * moveSpeed, Rigidbody.linearVelocity.y, moveAmount.y * moveSpeed);
+    }
+    
+    public void OnEnable()
+    {
+        MoveAction.Enable();
+        JumpAction.Enable();
+        InteractAction.Enable();
+    }
+
+    public void OnDisable()
+    {
+        MoveAction.Disable();
+        JumpAction.Disable();
+        InteractAction.Enable();
+    }
+    
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        // jump code goes here.
+    }
+    
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        
+    }
+}
