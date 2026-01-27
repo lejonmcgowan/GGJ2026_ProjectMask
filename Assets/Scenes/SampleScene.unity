@@ -180,7 +180,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 10
   m_Depth: -1
   m_CullingMask:
@@ -481,8 +481,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   Rigidbody: {fileID: 856158008}
-  moveSpeed: {x: 10, y: 20}
-  jumpForce: 10
+  moveSpeed: {x: 10, y: 15}
+  jumpForce: 4
+  GroundPoint: {fileID: 1628411937}
+  Grounded:
+    serializedVersion: 2
+    m_Bits: 1
   MoveAction:
     m_Name: Move
     m_Type: 0

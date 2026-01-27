@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     public Rigidbody Rigidbody;
     public Vector2 moveSpeed;
     public float jumpForce;
+    public Transform GroundPoint;
 
-
+    public LayerMask Grounded;
     public InputAction MoveAction;
     public InputAction JumpAction;
     public InputAction InteractAction;
@@ -51,7 +52,11 @@ public class PlayerController : MonoBehaviour
     
     public void OnJump(InputAction.CallbackContext context)
     {
-        // jump code goes here.
+        RaycastHit hit;
+        if (Physics.Raycast(GroundPoint.position, Vector3.down, out hit, .3f, Grounded));
+        {
+            Rigidbody.linearVelocity = new Vector3(Rigidbody.linearVelocity.x, jumpForce, Rigidbody.linearVelocity.z);
+        }
     }
     
     public void OnInteract(InputAction.CallbackContext context)
