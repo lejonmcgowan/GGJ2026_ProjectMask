@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody Rigidbody;
-    public float moveSpeed;
+    public Vector2 moveSpeed;
     public float jumpForce;
 
 
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         Vector2 moveAmount = MoveAction.ReadValue<Vector2>();
 
         Rigidbody.linearVelocity =
-            new Vector3(moveAmount.x * moveSpeed, Rigidbody.linearVelocity.y, moveAmount.y * moveSpeed);
+            new Vector3(moveAmount.x * moveSpeed.x, Rigidbody.linearVelocity.y, moveAmount.y * moveSpeed.y);
     }
     
     public void OnEnable()
