@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 BoxExtents = Vector3.one;
     public float interactDistance = 2f;
 
-    Vector2 facing = new Vector2(1,1);
+    Vector2 facing = new Vector2(1,-1);
 
     Vector3 boxCastCenter;
 
