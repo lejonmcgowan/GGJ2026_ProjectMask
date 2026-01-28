@@ -250,6 +250,14 @@ PrefabInstance:
       propertyPath: tempInteractText
       value: I'm the other one!
       objectReference: {fileID: 0}
+    - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: tempInteractText.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: 'tempInteractText.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: d9c6fb0467c4794458d70afc678c2407, type: 2}
     - target: {fileID: 6426188445707010314, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_Name
       value: NPC (1)
@@ -1092,6 +1100,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: tempInteractText.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: 'tempInteractText.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 54485455b4aeba840ae4ab243e41cacf, type: 2}
     - target: {fileID: 6426188445707010314, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_Name
       value: NPC
