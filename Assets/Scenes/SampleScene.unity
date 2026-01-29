@@ -663,18 +663,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   Target: {fileID: 712271473}
-  TargetBody: {fileID: 712271474}
   SmoothSpeed: 500
   Offset: {x: 0, y: 0, z: 0}
-  Camera: {fileID: 330585545}
+  MixingCamera: {fileID: 498825432}
+  Threshold: 1
 --- !u!4 &712271473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6206382996974068644, guid: d44e15999b8455342a1b075394a16da7, type: 3}
-  m_PrefabInstance: {fileID: 3670100740032361814}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &712271474 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 8428500323205735835, guid: d44e15999b8455342a1b075394a16da7, type: 3}
   m_PrefabInstance: {fileID: 3670100740032361814}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
