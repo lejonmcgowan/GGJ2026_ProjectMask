@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-public class PlayerController : MonoBehaviour
+public class          PlayerController : MonoBehaviour
 {
     public Rigidbody Rigidbody;
     public Vector2 moveSpeed;

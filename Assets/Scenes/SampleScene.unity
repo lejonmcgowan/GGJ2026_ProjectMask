@@ -250,6 +250,14 @@ PrefabInstance:
       propertyPath: tempInteractText
       value: I'm the other one!
       objectReference: {fileID: 0}
+    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6426188445707010314, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_Name
       value: NPC (1)
@@ -347,7 +355,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44.35, y: 3.51, z: 22.7}
+  m_LocalPosition: {x: 0, y: 3.5, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -566,6 +574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 498825433}
   - component: {fileID: 498825432}
+  - component: {fileID: 498825434}
   m_Layer: 0
   m_Name: Mixing Camera
   m_TagString: Untagged
@@ -625,7 +634,7 @@ Transform:
   m_GameObject: {fileID: 498825431}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44.35, y: 3.51, z: 22.7}
+  m_LocalPosition: {x: 0, y: 3.5, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -633,6 +642,22 @@ Transform:
   - {fileID: 252773312}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &498825434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498825431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f080f18ac97146a3a0d39d8661f12a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
+  Target: {fileID: 0}
+  TargetBody: {fileID: 0}
+  SmoothSpeed: 500
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!4 &712271473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6206382996974068644, guid: d44e15999b8455342a1b075394a16da7, type: 3}
@@ -793,7 +818,7 @@ Transform:
   m_GameObject: {fileID: 1046991373}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.94396, y: 6.73, z: 31.58144}
+  m_LocalPosition: {x: -13.3, y: 6.73, z: 10.8}
   m_LocalScale: {x: 4.148, y: 13.969, z: 3.3691}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -997,7 +1022,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6206382996974068644, guid: d44e15999b8455342a1b075394a16da7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -46.19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6206382996974068644, guid: d44e15999b8455342a1b075394a16da7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1005,7 +1030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6206382996974068644, guid: d44e15999b8455342a1b075394a16da7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.26599
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6206382996974068644, guid: d44e15999b8455342a1b075394a16da7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1091,6 +1116,14 @@ PrefabInstance:
     - target: {fileID: 311579964619134106, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -31.8
       objectReference: {fileID: 0}
     - target: {fileID: 6426188445707010314, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_Name
