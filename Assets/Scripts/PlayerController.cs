@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -21,6 +22,9 @@ public class          PlayerController : MonoBehaviour
     Vector2 facing = new Vector2(1,-1);
 
     Vector3 boxCastCenter;
+    
+    //thresholds that the character can move towards and away from the character
+    public Vector2 zLimits; 
 
     public void Awake()
     {
@@ -50,8 +54,19 @@ public class          PlayerController : MonoBehaviour
 
         boxCastCenter = transform.position + new Vector3(BoxExtents.x / 2 * facing.x, BoxExtents.y / 2, BoxExtents.z / 2 * facing.y);
 
-            Rigidbody.linearVelocity =
+        var rbVel = Rigidbody.linearVelocity;
+        
+        if (transform.position.z < zLimits.x && moveAmount.y < 0 || transform.position.z > zLimits.y && moveAmount.y > 0)
+        {
+            moveAmount.y = 0;
+        }
+        
+        
+        Rigidbody.linearVelocity =
                 new Vector3(moveAmount.x * moveSpeed.x, Rigidbody.linearVelocity.y, moveAmount.y * moveSpeed.y);
+        
+        
+            
     }
     
     public void OnEnable()
@@ -157,5 +172,6 @@ public class          PlayerController : MonoBehaviour
         Gizmos.DrawLine(p1 - halfExtentsX + halfExtentsY + halfExtentsZ, p2 - halfExtentsX + halfExtentsY + halfExtentsZ);
 
         Gizmos.DrawLine(p1 + halfExtentsX + halfExtentsY + halfExtentsZ, p2 + halfExtentsX + halfExtentsY + halfExtentsZ);
+        
     }
 }

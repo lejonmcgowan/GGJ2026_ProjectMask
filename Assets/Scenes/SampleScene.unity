@@ -250,14 +250,6 @@ PrefabInstance:
       propertyPath: tempInteractText
       value: I'm the other one!
       objectReference: {fileID: 0}
-    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 38.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -27.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: tempInteractText.Array.size
       value: 1
@@ -266,6 +258,14 @@ PrefabInstance:
       propertyPath: 'tempInteractText.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: d9c6fb0467c4794458d70afc678c2407, type: 2}
+    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6426188445707010314, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_Name
       value: NPC (1)
@@ -662,13 +662,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f080f18ac97146a3a0d39d8661f12a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  Target: {fileID: 0}
-  TargetBody: {fileID: 0}
+  Target: {fileID: 712271473}
+  TargetBody: {fileID: 712271474}
   SmoothSpeed: 500
   Offset: {x: 0, y: 0, z: 0}
+  Camera: {fileID: 330585545}
 --- !u!4 &712271473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6206382996974068644, guid: d44e15999b8455342a1b075394a16da7, type: 3}
+  m_PrefabInstance: {fileID: 3670100740032361814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &712271474 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8428500323205735835, guid: d44e15999b8455342a1b075394a16da7, type: 3}
   m_PrefabInstance: {fileID: 3670100740032361814}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
@@ -826,7 +832,7 @@ Transform:
   m_GameObject: {fileID: 1046991373}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.3, y: 6.73, z: 10.8}
+  m_LocalPosition: {x: -13.3, y: 6.73, z: 5.32}
   m_LocalScale: {x: 4.148, y: 13.969, z: 3.3691}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1028,6 +1034,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3379728627351430104, guid: d44e15999b8455342a1b075394a16da7, type: 3}
+      propertyPath: zLimits.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3379728627351430104, guid: d44e15999b8455342a1b075394a16da7, type: 3}
+      propertyPath: zLimits.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6206382996974068644, guid: d44e15999b8455342a1b075394a16da7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1125,14 +1139,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 45.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -31.8
-      objectReference: {fileID: 0}
     - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: tempInteractText.Array.size
       value: 1
@@ -1141,6 +1147,14 @@ PrefabInstance:
       propertyPath: 'tempInteractText.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 54485455b4aeba840ae4ab243e41cacf, type: 2}
+    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -31.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6426188445707010314, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_Name
       value: NPC
