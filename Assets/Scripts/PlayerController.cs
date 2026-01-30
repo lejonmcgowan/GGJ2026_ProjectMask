@@ -26,6 +26,11 @@ public class          PlayerController : MonoBehaviour
     //thresholds that the character can move towards and away from the character
     public Vector2 zLimits; 
 
+    public bool inDialogue;
+
+    const float kInteractCooldown = .5f;
+    float currentInteractCooldown;
+
     public void Awake()
     {
         // assign a callback for the "jump" action.
@@ -33,7 +38,22 @@ public class          PlayerController : MonoBehaviour
         InteractAction.performed += ctx => { OnInteract(ctx); };
     }
 
-    
+    void ToggleControllable(bool controlEnabled)
+    {
+        if(controlEnabled)
+        {
+            MoveAction.Enable();
+            JumpAction.Enable();
+            InteractAction.Enable();
+        }
+        else
+        {
+            MoveAction.Disable();
+            JumpAction.Disable();
+            InteractAction.Disable();
+        }
+    }
+
     public void Start()
     {
         
@@ -64,8 +84,9 @@ public class          PlayerController : MonoBehaviour
         
         Rigidbody.linearVelocity =
                 new Vector3(moveAmount.x * moveSpeed.x, Rigidbody.linearVelocity.y, moveAmount.y * moveSpeed.y);
-        
-        
+
+        if(InteractAction.enabled && currentInteractCooldown > 0)
+            currentInteractCooldown -= Time.deltaTime;
             
     }
     
@@ -94,6 +115,9 @@ public class          PlayerController : MonoBehaviour
     
     public void OnInteract(InputAction.CallbackContext context)
     {
+        if(currentInteractCooldown > 0)
+            return;
+
         Collider[] collisions = Physics.OverlapBox(boxCastCenter, BoxExtents / 2, transform.rotation);
         if(collisions != null)
         {
@@ -114,7 +138,13 @@ public class          PlayerController : MonoBehaviour
             {
                 Interactable interactable = closest.gameObject.GetComponentInParent<Interactable>();
                 if(interactable != null)
-                    interactable.Interact();
+                {
+                    if(interactable.Interact(()=> ToggleControllable(true)))
+                    {
+                        currentInteractCooldown = kInteractCooldown;
+                        ToggleControllable(false);
+                    }
+                }
                 else
                     Debug.LogError(closest.name + " has no Interactable component on its parent");
             }

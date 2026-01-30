@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   lines:
   - dialogueLine: EEP! THIS IS THE WORST THING! SOB!
+    expression: 4
     validResponses: []
   returnToPrevBranchOnEnd: 0

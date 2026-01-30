@@ -5,6 +5,7 @@ using UnityEngine;
 public struct NPCDialogueLine 
 {
     public string dialogueLine;
+    public MaskType expression;
     public MaskReactions[] validResponses;
 }
 
@@ -21,14 +22,22 @@ public enum MaskType
     HOSTILE,
     FRUSTRATED,
     PLEASED,
+    AFRAID,
     COUNT
+}
+
+public enum DialogueClearAction 
+{
+    END_DIALOGUE,
+    RETURN_TO_PREV_CHAIN,
+    CLEAR_STAGE
 }
 
 [CreateAssetMenu(fileName = "NPCDialogue", menuName = "Scriptable Objects/NPCDialogue")]
 public class NPCDialogue : ScriptableObject
 {
     public NPCDialogueLine[] lines;
-    public bool returnToPrevBranchOnEnd;
+    public DialogueClearAction clearAction;
 
     public string DisplayLine(int index)
     {

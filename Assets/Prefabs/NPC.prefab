@@ -276,7 +276,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   charName: FirstGuy
-  tempInteractText: I'm the first guy!
+  dialogueSpriteBase: {fileID: -353080403629206956, guid: f2637a8919d23164c80fc73670984544, type: 3}
+  faces:
+  - expression: 0
+    faceSprite: {fileID: -353080403629206956, guid: f2637a8919d23164c80fc73670984544, type: 3}
+  - expression: 4
+    faceSprite: {fileID: 7910164215081926686, guid: f2637a8919d23164c80fc73670984544, type: 3}
+  tempInteractText: []
+  currentDialogueState: 0
 --- !u!54 &3550386897271596260
 Rigidbody:
   m_ObjectHideFlags: 0

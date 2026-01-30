@@ -1,25 +1,45 @@
+using System;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public string charName;
-    public NPCDialogue[] tempInteractText;
+    public Sprite dialogueSpriteBase;
+    public DialogueFace[] faces;
+    public NPCDialogue[] interactDialogues;
     public int currentDialogueState = 0;
 
-    public void Interact()
+    Action OnInteractEnd;
+
+    public bool Interact(Action onInteractEnd)
     {
-        if(tempInteractText != null && tempInteractText.Length > 0)
+        if(interactDialogues != null && interactDialogues.Length > currentDialogueState)
         {
-            string line = tempInteractText[0].DisplayLine(0);
-            if(line != string.Empty)
+            if(DialogueSystem.Instance != null)
             {
-                Debug.LogError($"{charName}: {line}");
+                DialogueSystem.Instance.BeginDialogue(this, interactDialogues[currentDialogueState]);
             }
-            else
+            OnInteractEnd = onInteractEnd;
+            return true;
+        }
+        else return false;
+    }
+
+    public Sprite GetExpression(MaskType expression)
+    {
+        foreach(DialogueFace face in faces)
+        {
+            if(face.expression == expression)
             {
-                Debug.LogError($"ERROR - {charName} has no valid lines to display");
+                return face.faceSprite;
             }
         }
+        return null;
+    }
+
+    public void EndInteract()
+    {
+        OnInteractEnd();
     }
 }
