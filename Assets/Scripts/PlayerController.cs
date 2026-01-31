@@ -89,12 +89,16 @@ public class          PlayerController : MonoBehaviour
         {
             if(facing.x < 0)
             {
-                SpriteAnimator.Play("Sprite_Flip");
+                SpriteAnimator.Play("Player_Flip");
             }
             facing.x = 1;
         }
         else if (moveAmount.x < 0)
         {
+            if(facing.x > 0)
+            {
+                SpriteAnimator.Play("Player_Flip");
+            }
             facing.x = -1;
         }
 
