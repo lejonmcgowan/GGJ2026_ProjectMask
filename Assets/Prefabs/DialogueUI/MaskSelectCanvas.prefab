@@ -213,8 +213,8 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: b07922fe-4a02-4e5c-916b-f4465cb45456
-      m_Path: <Keyboard>/r
-      m_Interactions: 
+      m_Path: <Keyboard>/q
+      m_Interactions: Tap
       m_Processors: 
       m_Groups: 
       m_Action: Toggle
@@ -231,7 +231,7 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 2f4bd8af-aaa5-4ba4-94fa-0602d350d969
       m_Path: <Keyboard>/e
-      m_Interactions: 
+      m_Interactions: Tap
       m_Processors: 
       m_Groups: 
       m_Action: Confirm
@@ -264,6 +264,30 @@ MonoBehaviour:
     - m_Name: positive
       m_Id: 5c7db59b-b8e5-4ff6-a30b-4e359db4f5d6
       m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Nav
+      m_Flags: 8
+    - m_Name: 1D Axis
+      m_Id: 20efed1f-2a24-47c0-83e0-a5ecc6d92e44
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Nav
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 36920bf1-36aa-4eb9-9813-e40240168874
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Nav
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 22c618e9-6d98-4fb6-af2f-342a79b0da5b
+      m_Path: <Keyboard>/d
       m_Interactions: 
       m_Processors: 
       m_Groups: 

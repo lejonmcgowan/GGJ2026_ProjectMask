@@ -5,6 +5,7 @@ using UnityEngine.AdaptivePerformance;
 using UnityEngine.InputSystem;
 using System;
 using NUnit.Framework;
+using System.Collections;
 
 [Serializable]
 public struct MaskButton
@@ -59,7 +60,7 @@ public class MaskSelectMenu : MonoBehaviour
         ToggleAction.Enable();
 
         if(masks.Length > 0)
-            selector.transform.position = masks[0].maskIcon.transform.position;
+            StartCoroutine(MoveSelector(0));
     }
 
     void Update()
@@ -85,11 +86,19 @@ public class MaskSelectMenu : MonoBehaviour
         }
     }
 
+    IEnumerator MoveSelector(int index)
+    {
+        selector.gameObject.SetActive(false);
+        yield return null;
+        selector.transform.position = masks[index].maskIcon.transform.position;
+        selector.gameObject.SetActive(true);
+    }
+
     public void ToggleActive(bool active)
     {
         currentCooldown = kToggleCooldown;
         uiHolder.SetActive(active);
-        selector.transform.position = masks[selectedIndex].maskIcon.transform.position;
+        StartCoroutine(MoveSelector(selectedIndex));
         if(active)
         {
             currentCooldown = kToggleCooldown;
@@ -156,7 +165,7 @@ public class MaskSelectMenu : MonoBehaviour
         {
             selectedIndex = index;
             selectedMask = masks[index].mask;
-            selector.transform.position = masks[index].maskIcon.transform.position;
+            StartCoroutine(MoveSelector(index));
             return true;
         }
         return false;
