@@ -8,6 +8,8 @@ public class          PlayerController : MonoBehaviour
 {
     public Rigidbody Rigidbody;
     public Vector2 moveSpeed;
+    public Animator SpriteAnimator;
+    
     public float jumpForce;
     public Transform GroundPoint;
 
@@ -62,10 +64,18 @@ public class          PlayerController : MonoBehaviour
     public void Update()
     {
         Vector2 moveAmount = MoveAction.ReadValue<Vector2>();
-        if(moveAmount.x > 0)
+        if (moveAmount.x > 0)
+        {
+            if(facing.x < 0)
+            {
+                SpriteAnimator.Play("Sprite_Flip");
+            }
             facing.x = 1;
-        else if(moveAmount.x < 0)
+        }
+        else if (moveAmount.x < 0)
+        {
             facing.x = -1;
+        }
 
         if(moveAmount.y > 0)
             facing.y = 1;

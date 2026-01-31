@@ -1,8 +1,5 @@
 ﻿using Unity.Cinemachine;
-using Unity.Mathematics.Geometry;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 
 public class CameraFollow: MonoBehaviour
 {
