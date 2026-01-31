@@ -23,6 +23,7 @@ public enum MaskType
     FRUSTRATED,
     PLEASED,
     AFRAID,
+    FISH,
     COUNT
 }
 

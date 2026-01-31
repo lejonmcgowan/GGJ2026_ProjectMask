@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Test2
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   lines:
-  - dialogueLine: I shall say many things...
+  - dialogueLine: RAWR! Listen as I say many things all HOSTILE like!
+    expression: 1
     validResponses: []
-  - dialogueLine: One after another...
+  - dialogueLine: Did you learn Hostile from that? I hope so.
+    expression: 0
     validResponses: []
   - dialogueLine: This one can be interrupted by PLEASED.
+    expression: 0
     validResponses: []
-  returnToPrevBranchOnEnd: 0
+  clearAction: 0

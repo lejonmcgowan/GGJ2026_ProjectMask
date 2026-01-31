@@ -36,6 +36,7 @@ public class DialogueSystem : MonoBehaviour
 
     public UnityEngine.UI.Image speakerBaseSprite;
     public UnityEngine.UI.Image speakerFaceSprite;
+    public UnityEngine.UI.Image playerFaceSprite;
 
     Interactable currentSpeaker;
     NPCDialogue currentDialogue;
@@ -82,7 +83,11 @@ public class DialogueSystem : MonoBehaviour
     {
         if(dialogue == null || dialogue.lines.Length == 0)
             return;
+        SetPlayerFace(PlayerController.Instance.currentMask);
 
+        currentLine = dialogue.lines[0];
+        if(CheckForMaskResponse(PlayerController.Instance.currentMask))
+            return;
         currentSpeaker = speaker;
         speakerText.text = currentSpeaker.charName;
         dialogueBranchChain.Add(new DialogueBranchCheckpoint(dialogue, 0));
@@ -96,9 +101,16 @@ public class DialogueSystem : MonoBehaviour
 
     void SetSpeakerDialogue(NPCDialogueLine line)
     {
+        MaskSelectMenu.Instance.UnlockMask(line.expression);
+
         currentLine = line;
         dialogueText.text = line.dialogueLine;
         speakerFaceSprite.sprite = currentSpeaker.GetExpression(line.expression);
+    }
+
+    public void SetPlayerFace(MaskType mask)
+    {
+        playerFaceSprite.sprite = PlayerController.Instance.GetExpression(mask);
     }
 
     public bool CheckForMaskResponse(MaskType mask)
@@ -116,7 +128,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void ProgressDialogue(InputAction.CallbackContext context)
     {
-        if(currentCooldown > 0) return;
+        if(currentCooldown > 0 || MaskSelectMenu.Instance.uiHolder.activeInHierarchy) return;
 
         dialogueBranchChain[dialogueBranchChain.Count-1].currentLineIndex++;
         if(currentDialogue.lines.Length <= dialogueBranchChain[dialogueBranchChain.Count - 1].currentLineIndex)
