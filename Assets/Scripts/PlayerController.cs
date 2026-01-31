@@ -1,11 +1,20 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
+public enum ControlSchemeType
+{
+    FIELD,
+    DIALOGUE,
+    MASK_SELECT
+}
+
 public class          PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
     public Rigidbody Rigidbody;
     public Vector2 moveSpeed;
     public Animator SpriteAnimator;
@@ -33,26 +42,38 @@ public class          PlayerController : MonoBehaviour
     const float kInteractCooldown = .5f;
     float currentInteractCooldown;
 
+    public DialogueFace[] faces;
+    public MaskType currentMask = MaskType.NONE;
+
+    public SpriteRenderer mask;
+
     public void Awake()
     {
         // assign a callback for the "jump" action.
         JumpAction.performed += ctx => { OnJump(ctx); };
         InteractAction.performed += ctx => { OnInteract(ctx); };
+        Instance = this;
     }
 
-    void ToggleControllable(bool controlEnabled)
+    public void ChangeControlScheme(ControlSchemeType scheme)
     {
-        if(controlEnabled)
+        switch(scheme) 
         {
-            MoveAction.Enable();
-            JumpAction.Enable();
-            InteractAction.Enable();
-        }
-        else
-        {
-            MoveAction.Disable();
-            JumpAction.Disable();
-            InteractAction.Disable();
+            case ControlSchemeType.FIELD:
+                MoveAction.Enable();
+                JumpAction.Enable();
+                InteractAction.Enable();
+                break;
+            case ControlSchemeType.DIALOGUE:
+                MoveAction.Disable();
+                JumpAction.Disable();
+                InteractAction.Disable();
+                break;
+            case ControlSchemeType.MASK_SELECT:
+                MoveAction.Disable();
+                JumpAction.Disable();
+                InteractAction.Disable();
+                break;
         }
     }
 
@@ -105,13 +126,14 @@ public class          PlayerController : MonoBehaviour
         MoveAction.Enable();
         JumpAction.Enable();
         InteractAction.Enable();
+        SetExpression(currentMask);
     }
 
     public void OnDisable()
     {
         MoveAction.Disable();
         JumpAction.Disable();
-        InteractAction.Enable();
+        InteractAction.Disable();
     }
     
     public void OnJump(InputAction.CallbackContext context)
@@ -149,16 +171,50 @@ public class          PlayerController : MonoBehaviour
                 Interactable interactable = closest.gameObject.GetComponentInParent<Interactable>();
                 if(interactable != null)
                 {
-                    if(interactable.Interact(()=> ToggleControllable(true)))
+                    if(interactable.Interact(()=> ChangeControlScheme(ControlSchemeType.FIELD)))
                     {
                         currentInteractCooldown = kInteractCooldown;
-                        ToggleControllable(false);
+                        ChangeControlScheme(ControlSchemeType.DIALOGUE);
                     }
                 }
                 else
                     Debug.LogError(closest.name + " has no Interactable component on its parent");
             }
         }
+    }
+
+    void ToggleMaskMenu(InputAction.CallbackContext context)
+    {
+        if(InteractAction.enabled)
+        {
+            Debug.LogError("Toggling mask menu ON");
+            ChangeControlScheme(ControlSchemeType.MASK_SELECT);
+            MaskSelectMenu.Instance.ToggleActive(true);
+        }
+        else
+        {
+            Debug.LogError("Toggling mask menu OFF");
+            ChangeControlScheme(ControlSchemeType.FIELD);
+            MaskSelectMenu.Instance.ToggleActive(false);
+        }
+    }
+
+    public Sprite GetExpression(MaskType expression)
+    {
+        foreach(DialogueFace face in faces)
+        {
+            if(face.expression == expression)
+            {
+                return face.faceSprite;
+            }
+        }
+        return null;
+    }
+
+    public void SetExpression(MaskType expression)
+    {
+        currentMask = expression;
+        mask.sprite = GetExpression(expression);
     }
 
     void OnDrawGizmos()
