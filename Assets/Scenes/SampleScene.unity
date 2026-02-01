@@ -1133,13 +1133,6 @@ PrefabInstance:
       propertyPath: zLimits.y
       value: 12
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-    - target: {fileID: 3379728627351430104, guid: d44e15999b8455342a1b075394a16da7, type: 3}
-      propertyPath: SpriteAnimator
-      value: 
-      objectReference: {fileID: 985545800}
-=======
->>>>>>> 2f940e66986ab2f7cb25153af7e988904bf8da96
     - target: {fileID: 6206382996974068644, guid: d44e15999b8455342a1b075394a16da7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1187,14 +1180,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-<<<<<<< HEAD
-    m_AddedComponents: []
-=======
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6821595469644978689, guid: d44e15999b8455342a1b075394a16da7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 985545802}
->>>>>>> 2f940e66986ab2f7cb25153af7e988904bf8da96
   m_SourcePrefab: {fileID: 100100000, guid: d44e15999b8455342a1b075394a16da7, type: 3}
 --- !u!1001 &6441248375445985429
 PrefabInstance:

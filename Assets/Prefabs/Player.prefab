@@ -208,11 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4987115659716113349}
   - component: {fileID: 63379815075951572}
-<<<<<<< HEAD
-  - component: {fileID: 5227758889472793932}
-  - component: {fileID: 1693022573751118414}
-=======
->>>>>>> 2f940e66986ab2f7cb25153af7e988904bf8da96
+  - component: {fileID: 2888159450715288462}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Player
@@ -295,31 +291,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
---- !u!136 &5227758889472793932
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6821595469644978689}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.9600002
-  m_Height: 2.56
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.27, z: 0}
---- !u!95 &1693022573751118414
+--- !u!95 &2888159450715288462
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -329,7 +301,7 @@ Animator:
   m_GameObject: {fileID: 6821595469644978689}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b40f072748a2d449a36362ecee01761, type: 2}
+  m_Controller: {fileID: 9100000, guid: 10f06287bfa0cf249a35bb27d1d1a199, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -341,8 +313,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
-=======
->>>>>>> 2f940e66986ab2f7cb25153af7e988904bf8da96
 --- !u!1 &7807382505766654727
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,15 +338,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7807382505766654727}
   serializedVersion: 2
-<<<<<<< HEAD
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.09000015, y: 1.33, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
-=======
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.6699998, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
->>>>>>> 2f940e66986ab2f7cb25153af7e988904bf8da96
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4987115659716113349}
@@ -451,7 +415,6 @@ GameObject:
   - component: {fileID: 6206382996974068644}
   - component: {fileID: 3379728627351430104}
   - component: {fileID: 8428500323205735835}
-  - component: {fileID: 7918413711247032836}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -492,11 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   Rigidbody: {fileID: 8428500323205735835}
   moveSpeed: {x: 10, y: 15}
-<<<<<<< HEAD
-  SpriteAnimator: {fileID: 1693022573751118414}
-=======
-  SpriteAnimator: {fileID: 7918413711247032836}
->>>>>>> 2f940e66986ab2f7cb25153af7e988904bf8da96
+  SpriteAnimator: {fileID: 2888159450715288462}
   jumpForce: 4
   GroundPoint: {fileID: 912038241555762666}
   Grounded:
@@ -631,25 +590,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!95 &7918413711247032836
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8450225063575309495}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed7d5ded55bb3e647afb830102661558, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
