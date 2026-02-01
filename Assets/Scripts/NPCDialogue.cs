@@ -7,6 +7,7 @@ public struct NPCDialogueLine
     public string dialogueLine;
     public MaskType expression;
     public MaskReactions[] validResponses;
+    public MaskType maskToRemove;
 }
 
 [Serializable]
@@ -24,6 +25,7 @@ public enum MaskType
     PLEASED,
     AFRAID,
     FISH,
+    STAGE_CLEAR,
     COUNT
 }
 
@@ -31,6 +33,7 @@ public enum DialogueClearAction
 {
     END_DIALOGUE,
     RETURN_TO_PREV_CHAIN,
+    INCREMENT_NPC_STATE,
     CLEAR_STAGE
 }
 

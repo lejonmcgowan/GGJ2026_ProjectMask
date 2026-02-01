@@ -81,6 +81,33 @@ public class MaskSelectMenu : MonoBehaviour
             if(b.mask == mask)
             {
                 b.maskIcon.gameObject.SetActive(true);
+                unlockedMasks.Add(mask);
+                return;
+            }
+        }
+    }
+
+    public void RemoveMask(MaskType mask)
+    {
+        if(!unlockedMasks.Contains(mask))
+        {
+            Debug.LogError("Player doesn't have " + mask + " unlocked");
+            return;
+        }
+
+        foreach(MaskButton b in masks)
+        {
+            if(b.mask == mask)
+            {
+                b.maskIcon.gameObject.SetActive(false);
+                unlockedMasks.Remove(mask);
+                if(PlayerController.Instance.currentMask == mask)
+                {
+                    if(DialogueSystem.Instance.uiHolder.activeInHierarchy)
+                        DialogueSystem.Instance.SetPlayerFace(MaskType.NONE);
+                    else
+                        PlayerController.Instance.SetExpression(MaskType.NONE);
+                }
                 return;
             }
         }
@@ -98,7 +125,13 @@ public class MaskSelectMenu : MonoBehaviour
     {
         currentCooldown = kToggleCooldown;
         uiHolder.SetActive(active);
-        StartCoroutine(MoveSelector(selectedIndex));
+        for(int i = selectedIndex; i >= 0; i--)
+        {
+            if(AttemptMaskHighlight(i, isInitial: true))
+            {
+                break;
+            }
+        }
         if(active)
         {
             currentCooldown = kToggleCooldown;
@@ -159,9 +192,9 @@ public class MaskSelectMenu : MonoBehaviour
         }
     }
 
-    bool AttemptMaskHighlight(int index)
+    bool AttemptMaskHighlight(int index, bool isInitial = false)
     {
-        if(masks[index].mask != selectedMask && masks[index].maskIcon.gameObject.activeInHierarchy)
+        if((masks[index].mask != selectedMask || isInitial) && masks[index].maskIcon.gameObject.activeInHierarchy)
         {
             selectedIndex = index;
             selectedMask = masks[index].mask;
