@@ -16,14 +16,16 @@ MonoBehaviour:
   - dialogueLine: (There's a fishing line, diligently luring in its mark with tantalizing
       tackle despite seemingly being abandoned by its angler.)
     expression: 0
+    noMaskGiven: 0
     validResponses:
     - requiredMask: 2
       resultingChain: {fileID: 11400000, guid: f40cf8df1290cee49bbad2e777aabb63, type: 2}
     maskToRemove: 0
   - dialogueLine: (There seems to be a nibble at the line. How FRUSTRATING that the
       pole is working so hard, despite there being no one to help it fulfill its
-      purpose.))
+      purpose.)
     expression: 0
+    noMaskGiven: 0
     validResponses:
     - requiredMask: 2
       resultingChain: {fileID: 11400000, guid: f40cf8df1290cee49bbad2e777aabb63, type: 2}

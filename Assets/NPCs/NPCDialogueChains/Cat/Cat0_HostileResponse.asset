@@ -15,7 +15,9 @@ MonoBehaviour:
   lines:
   - dialogueLine: (The cat takes your HOSTILE visage as an invitation for a shouting
       match. The cat is VERY practiced at this. It takes a moment for your ears to
-      stop ringing.))
+      stop ringing.)
     expression: 1
+    noMaskGiven: 0
     validResponses: []
+    maskToRemove: 0
   clearAction: 0

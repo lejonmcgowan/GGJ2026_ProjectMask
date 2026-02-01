@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: FishingPole0_FrustratedResponse
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   lines:
-  - dialogueLine: (With the gusto and gumption that comes from feeling something
-      is wrong, you hoist the line in and retrieve a fishy prize. The fish looks
-      pretty SURPRISED. Or maybe just LIKE A FISH.))
+  - dialogueLine: (With the gusto and gumption, you channel FRUSTRATION into strength
+      and hoist the line in to retrieve a fishy prize. The fish looks pretty SURPRISED.
+      Or maybe just LIKE A FISH.)
     expression: 5
+    noMaskGiven: 0
     validResponses: []
+    maskToRemove: 0
   - dialogueLine: (You imagine the fishing pole might feel PROUD or FULFILLED at
       a job well done. If it weren't just an inanimate stick of wood with string
       at its end.)
     expression: 0
+    noMaskGiven: 0
     validResponses: []
+    maskToRemove: 0
   clearAction: 2

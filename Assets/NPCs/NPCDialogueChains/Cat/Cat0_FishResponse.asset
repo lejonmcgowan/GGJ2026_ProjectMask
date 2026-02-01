@@ -15,8 +15,9 @@ MonoBehaviour:
   lines:
   - dialogueLine: (The once testy kitty instantly changes its tune when it sees the
       FISH on your face. You offer it, and the lord of the bush is PLEASED. You also
-      no longer smell wet fish on your face. Truly a success for all involved!))
+      no longer smell wet fish on your face. Truly a win for all involved!)
     expression: 3
+    noMaskGiven: 0
     validResponses: []
     maskToRemove: 5
   clearAction: 2

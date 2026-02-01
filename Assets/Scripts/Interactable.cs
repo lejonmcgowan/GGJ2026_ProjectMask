@@ -7,9 +7,16 @@ public class Interactable : MonoBehaviour
     public string charName;
     public DialogueFace[] faces;
     public NPCDialogue[] interactDialogues;
-    public int currentDialogueState = 0;
 
     Action OnInteractEnd;
+
+    public SpriteRenderer OverworldSprite;
+
+    public Sprite[] overworldStates;
+
+    public GameObject InteractPrompt;
+
+    int currentDialogueState = 0;
 
     public bool Interact(Action onInteractEnd)
     {
@@ -40,5 +47,14 @@ public class Interactable : MonoBehaviour
     public void EndInteract()
     {
         OnInteractEnd();
+    }
+
+    public void UpdateNPCState(int valueChange)
+    {
+        currentDialogueState += valueChange;
+        if(overworldStates != null && overworldStates.Length > currentDialogueState)
+        {
+            OverworldSprite.sprite = overworldStates[currentDialogueState];
+        }
     }
 }
