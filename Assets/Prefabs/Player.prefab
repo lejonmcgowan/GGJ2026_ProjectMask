@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 4987115659716113349}
   - component: {fileID: 63379815075951572}
   - component: {fileID: 5227758889472793932}
+  - component: {fileID: 1693022573751118414}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Player
@@ -173,7 +174,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3023054625322207588}
   m_Father: {fileID: 6206382996974068644}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &63379815075951572
@@ -258,6 +260,28 @@ CapsuleCollider:
   m_Height: 2.56
   m_Direction: 1
   m_Center: {x: 0, y: 1.27, z: 0}
+--- !u!95 &1693022573751118414
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6821595469644978689}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b40f072748a2d449a36362ecee01761, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7807382505766654727
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,12 +307,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7807382505766654727}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09, y: 1.33, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.09000015, y: 1.33, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6206382996974068644}
+  m_Father: {fileID: 4987115659716113349}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1276959518293739761
 SpriteRenderer:
@@ -381,7 +405,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4987115659716113349}
-  - {fileID: 3023054625322207588}
   - {fileID: 6688882011536218347}
   - {fileID: 912038241555762666}
   m_Father: {fileID: 0}
@@ -400,6 +423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   Rigidbody: {fileID: 8428500323205735835}
   moveSpeed: {x: 10, y: 15}
+  SpriteAnimator: {fileID: 1693022573751118414}
   jumpForce: 4
   GroundPoint: {fileID: 912038241555762666}
   Grounded:

@@ -72,7 +72,7 @@ public class MainMenu : MonoBehaviour
             switch(button.myAction)
             {
                 case ButtonAction.STAGE_1:
-                    StartCoroutine(LoadLevel(1));
+                    StartCoroutine(LoadLevel(2));
                     break;
                 case ButtonAction.STAGE_2:
                     confirming = false;
@@ -81,7 +81,7 @@ public class MainMenu : MonoBehaviour
                     confirming = false;
                     break;
                 case ButtonAction.OPTIONS:
-                    confirming = false;
+                    StartCoroutine(LoadLevel(1));
                     break;
                 case ButtonAction.CREDITS:
                     confirming = false;

@@ -89,7 +89,10 @@ public class          PlayerController : MonoBehaviour
         {
             if(facing.x < 0)
             {
-                SpriteAnimator.Play("Player_Flip");
+                SpriteAnimator.StopPlayback();
+                SpriteAnimator.gameObject.transform.SetPositionAndRotation(SpriteAnimator.gameObject.transform.position,
+                Quaternion.Euler(0,-180,0));
+                SpriteAnimator.Play("Player_Flip_Right");
             }
             facing.x = 1;
         }
@@ -97,7 +100,10 @@ public class          PlayerController : MonoBehaviour
         {
             if(facing.x > 0)
             {
-                SpriteAnimator.Play("Player_Flip");
+                SpriteAnimator.StopPlayback();
+                SpriteAnimator.gameObject.transform.SetPositionAndRotation(SpriteAnimator.gameObject.transform.position,
+                    Quaternion.Euler(0,0,0));
+                SpriteAnimator.Play("Player_Flip_Left");
             }
             facing.x = -1;
         }

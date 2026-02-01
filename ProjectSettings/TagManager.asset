@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Interactable
+  - Music
   layers:
   - Default
   - TransparentFX
