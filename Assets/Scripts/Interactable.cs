@@ -5,7 +5,6 @@ public class Interactable : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public string charName;
-    public Sprite dialogueSpriteBase;
     public DialogueFace[] faces;
     public NPCDialogue[] interactDialogues;
     public int currentDialogueState = 0;

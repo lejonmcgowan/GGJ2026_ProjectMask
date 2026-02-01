@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865e535c3360ef64689afcddcea1923a, type: 3}
+  m_Name: Picknicker1_PleasedResponse
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  lines:
+  - dialogueLine: You're...giving me this mask? Hm...
+    expression: 2
+    validResponses: []
+    maskToRemove: 0
+  - dialogueLine: I...feel a bit better now, thanks. Like I can finally start enjoying
+      my day off instead of...stressing about every little thing...
+    expression: 3
+    validResponses: []
+    maskToRemove: 3
+  - dialogueLine: Oh! Kitty! Are you in a better mood now too?
+    expression: 3
+    validResponses: []
+    maskToRemove: 0
+  - dialogueLine: Eh heh! Seems my day off is finally working out now! Thanks for
+      helping me cheer up, stranger!
+    expression: 6
+    validResponses: []
+    maskToRemove: 0
+  clearAction: 3

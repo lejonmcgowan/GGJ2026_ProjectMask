@@ -34,7 +34,6 @@ public class DialogueSystem : MonoBehaviour
     public static DialogueSystem Instance;
     List<DialogueBranchCheckpoint> dialogueBranchChain = new List<DialogueBranchCheckpoint>();
 
-    public UnityEngine.UI.Image speakerBaseSprite;
     public UnityEngine.UI.Image speakerFaceSprite;
     public UnityEngine.UI.Image playerFaceSprite;
 
@@ -44,7 +43,7 @@ public class DialogueSystem : MonoBehaviour
 
     public InputAction ProgressAction;
 
-    const float kProgressCooldown = .5f;
+    const float kProgressCooldown = .2f;
     float currentCooldown;
 
     void Awake()
@@ -86,12 +85,11 @@ public class DialogueSystem : MonoBehaviour
         SetPlayerFace(PlayerController.Instance.currentMask);
 
         currentLine = dialogue.lines[0];
-        if(CheckForMaskResponse(PlayerController.Instance.currentMask))
-            return;
         currentSpeaker = speaker;
         speakerText.text = currentSpeaker.charName;
+        if(CheckForMaskResponse(PlayerController.Instance.currentMask))
+            return;
         dialogueBranchChain.Add(new DialogueBranchCheckpoint(dialogue, 0));
-        speakerBaseSprite.sprite = speaker.dialogueSpriteBase;
         currentDialogue = dialogue;
         SetSpeakerDialogue(dialogue.lines[0]);
 
@@ -102,7 +100,10 @@ public class DialogueSystem : MonoBehaviour
     void SetSpeakerDialogue(NPCDialogueLine line)
     {
         MaskSelectMenu.Instance.UnlockMask(line.expression);
-
+        if(line.maskToRemove != MaskType.NONE)
+        {
+            MaskSelectMenu.Instance.RemoveMask(line.maskToRemove);
+        }
         currentLine = line;
         dialogueText.text = line.dialogueLine;
         speakerFaceSprite.sprite = currentSpeaker.GetExpression(line.expression);
@@ -111,6 +112,7 @@ public class DialogueSystem : MonoBehaviour
     public void SetPlayerFace(MaskType mask)
     {
         playerFaceSprite.sprite = PlayerController.Instance.GetExpression(mask);
+        PlayerController.Instance.SetExpression(mask);
     }
 
     public bool CheckForMaskResponse(MaskType mask)
@@ -138,14 +140,25 @@ public class DialogueSystem : MonoBehaviour
                 case DialogueClearAction.RETURN_TO_PREV_CHAIN:
                     //pop latest chain.
                     dialogueBranchChain.RemoveAt(dialogueBranchChain.Count - 1);
-                    //set current dialogue back to previous.
-                    currentDialogue = dialogueBranchChain[dialogueBranchChain.Count - 1].dialogue;
-                    //display line we came from
-                    SetSpeakerDialogue(currentDialogue.lines[dialogueBranchChain[dialogueBranchChain.Count - 1].currentLineIndex]);
+                    if(dialogueBranchChain.Count == 0)
+                        EndDialogue();
+                    else
+                    {
+                        //set current dialogue back to previous.
+                        currentDialogue = dialogueBranchChain[dialogueBranchChain.Count - 1].dialogue;
+                        SetPlayerFace(MaskType.NONE);
+                        //display line we came from
+                        SetSpeakerDialogue(currentDialogue.lines[dialogueBranchChain[dialogueBranchChain.Count - 1].currentLineIndex]);
+                    }
                     break;
                 case DialogueClearAction.CLEAR_STAGE:
                     EndDialogue();
+                    StageClearMenu.Instance.ToggleActive(true);
                     //Call for stage clear here.
+                    break;
+                case DialogueClearAction.INCREMENT_NPC_STATE:
+                    currentSpeaker.currentDialogueState++;
+                    EndDialogue();
                     break;
                 case DialogueClearAction.END_DIALOGUE:
                 default:
