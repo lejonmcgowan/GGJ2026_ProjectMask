@@ -512,9 +512,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 12295422456126750, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
+      propertyPath: m_Name
+      value: CreditsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 46191398462400547, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
+      propertyPath: m_Name
+      value: OptionsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 51658113276047389, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
+      propertyPath: m_Name
+      value: Stage1Button
+      objectReference: {fileID: 0}
     - target: {fileID: 246415299632851938, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 916562935219743803, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
+      propertyPath: m_Name
+      value: Stage3Button
       objectReference: {fileID: 0}
     - target: {fileID: 981322235640737446, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
       propertyPath: m_Delegates.Array.size
@@ -655,6 +671,14 @@ PrefabInstance:
     - target: {fileID: 989154153710413810, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715610890802743134, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
+      propertyPath: m_Name
+      value: Stage2Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196403063135517628, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
+      propertyPath: m_Interactable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4461243634867888745, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -831,6 +855,10 @@ PrefabInstance:
     - target: {fileID: 7417195785346934026, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691157167973167470, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
+      propertyPath: m_Name
+      value: QuitButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

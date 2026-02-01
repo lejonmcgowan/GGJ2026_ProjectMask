@@ -1,7 +1,7 @@
-using System.Collections;
+
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public enum SoundAction
@@ -14,13 +14,10 @@ public enum SoundAction
 
 public class SoundMenu : MonoBehaviour
 {
-    public Image previewImage;
-    public TextMeshProUGUI previewText;
-    public Image protagMask;
-
     public AudioClip menuHighlightSfx;
     public AudioClip menuConfirmSfx;
 
+    public AudioMixer Mixer; 
     public Slider MasterSlider;
     public Slider BGMSlider;
     public Slider SFXSlider;
@@ -32,13 +29,22 @@ public class SoundMenu : MonoBehaviour
     void Start()
     {
         audioPlayer = GetComponent<AudioSource>();
-    }
 
-    public void HighlightOption(MainMenuButton button)
-    {
-        previewText.text = button.previewText;
-        previewImage.sprite = button.previewSprite;
-        PlaySfx(menuHighlightSfx);
+        Mixer.GetFloat("MASTER", out var masterVolume);
+        Mixer.GetFloat("BGM", out var bgmVolume);
+        Mixer.GetFloat("SFX", out var sfxVolume);
+        
+        MasterSlider.minValue = -80;
+        MasterSlider.maxValue = 20;
+        MasterSlider.value = masterVolume;
+        
+        BGMSlider.minValue = -80;
+        BGMSlider.maxValue = 20;
+        BGMSlider.value = bgmVolume;
+        
+        SFXSlider.minValue = -80;
+        SFXSlider.maxValue = 20;
+        SFXSlider.value = sfxVolume;
     }
     
     void PlaySfx(AudioClip clip)
@@ -48,5 +54,10 @@ public class SoundMenu : MonoBehaviour
             audioPlayer.clip = clip;
             audioPlayer.Play();
         }
+    }
+    
+    public void OnMasterVolumeChange(Slider slider)
+    {
+        MasterSlider.value = slider.value;
     }
 }
