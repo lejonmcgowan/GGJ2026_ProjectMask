@@ -34,7 +34,6 @@ public class DialogueSystem : MonoBehaviour
     public static DialogueSystem Instance;
     List<DialogueBranchCheckpoint> dialogueBranchChain = new List<DialogueBranchCheckpoint>();
 
-    public UnityEngine.UI.Image speakerBaseSprite;
     public UnityEngine.UI.Image speakerFaceSprite;
     public UnityEngine.UI.Image playerFaceSprite;
 
@@ -91,7 +90,6 @@ public class DialogueSystem : MonoBehaviour
         if(CheckForMaskResponse(PlayerController.Instance.currentMask))
             return;
         dialogueBranchChain.Add(new DialogueBranchCheckpoint(dialogue, 0));
-        speakerBaseSprite.sprite = speaker.dialogueSpriteBase;
         currentDialogue = dialogue;
         SetSpeakerDialogue(dialogue.lines[0]);
 
