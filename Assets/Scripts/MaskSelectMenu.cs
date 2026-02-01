@@ -59,7 +59,7 @@ public class MaskSelectMenu : MonoBehaviour
             GaveMaskImage.gameObject.SetActive(true);
             GotMaskImage.gameObject.SetActive(false);
             GaveMaskImage.sprite = maskSprite;
-            MaskStatusText.text = string.Format("Delivered the\"{0}\" mask!", mask.ToString());
+            MaskStatusText.text = string.Format("Delivered the \"{0}\" mask!", mask.ToString());
         }
         MaskStatusUpdate.SetTrigger(kPromptTrigger);
     }
@@ -121,7 +121,6 @@ public class MaskSelectMenu : MonoBehaviour
     {
         if(!unlockedMasks.Contains(mask))
         {
-            Debug.LogError("Player doesn't have " + mask + " unlocked");
             return;
         }
 
