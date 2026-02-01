@@ -21,30 +21,33 @@ public class SoundMenu : MonoBehaviour
     public Slider MasterSlider;
     public Slider BGMSlider;
     public Slider SFXSlider;
+
+    public Button DefaultsButton;
+    public Button BackButton;
     
     AudioSource audioPlayer;
 
     bool confirming = false;
-    
+
+    private float defaultMasterVolume;
+    private float defaultBGMVolume;
+    private float defaultSFXVolume;
     void Start()
     {
         audioPlayer = GetComponent<AudioSource>();
 
-        Mixer.GetFloat("MASTER", out var masterVolume);
-        Mixer.GetFloat("BGM", out var bgmVolume);
-        Mixer.GetFloat("SFX", out var sfxVolume);
+        Mixer.GetFloat("MASTER", out defaultMasterVolume);
+        Mixer.GetFloat("BGM", out defaultBGMVolume);
+        Mixer.GetFloat("SFX", out defaultSFXVolume);
         
-        MasterSlider.minValue = -80;
-        MasterSlider.maxValue = 20;
-        MasterSlider.value = masterVolume;
+        MasterSlider.value = defaultMasterVolume;
+        BGMSlider.value = defaultBGMVolume;
+        SFXSlider.value = defaultSFXVolume;
         
-        BGMSlider.minValue = -80;
-        BGMSlider.maxValue = 20;
-        BGMSlider.value = bgmVolume;
-        
-        SFXSlider.minValue = -80;
-        SFXSlider.maxValue = 20;
-        SFXSlider.value = sfxVolume;
+        MasterSlider.onValueChanged.AddListener(delegate {OnMasterVolumeChanged();});
+        BGMSlider.onValueChanged.AddListener(delegate {OnBGMVolumeChanged();});
+        SFXSlider.onValueChanged.AddListener(delegate {OnSFXVolumeChanged();});
+        DefaultsButton.onClick.AddListener(ResetDefaultVolumes);
     }
     
     void PlaySfx(AudioClip clip)
@@ -56,8 +59,25 @@ public class SoundMenu : MonoBehaviour
         }
     }
     
-    public void OnMasterVolumeChange(Slider slider)
+    public void OnMasterVolumeChanged()
     {
-        MasterSlider.value = slider.value;
+        Mixer.SetFloat("MASTER", MasterSlider.value);
+    }
+    
+    public void OnSFXVolumeChanged()
+    {
+        Mixer.SetFloat("SFX", SFXSlider.value);
+    }
+    
+    public void OnBGMVolumeChanged()
+    {
+        Mixer.SetFloat("BGM", BGMSlider.value);
+    }
+
+    public void ResetDefaultVolumes()
+    {
+        MasterSlider.value = defaultMasterVolume;
+        BGMSlider.value = defaultBGMVolume;
+        SFXSlider.value = defaultSFXVolume;
     }
 }
