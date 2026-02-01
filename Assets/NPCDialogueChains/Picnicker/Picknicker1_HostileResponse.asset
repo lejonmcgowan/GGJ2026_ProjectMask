@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865e535c3360ef64689afcddcea1923a, type: 3}
+  m_Name: Picknicker1_HostileResponse
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  lines:
+  - dialogueLine: Jeez, don't look at me like that! If you want this spot, just gimme
+      a minute! I may as well pack up anyway...
+    expression: 2
+    validResponses: []
+    maskToRemove: 0
+  clearAction: 1

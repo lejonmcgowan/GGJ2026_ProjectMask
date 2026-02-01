@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 865e535c3360ef64689afcddcea1923a, type: 3}
-  m_Name: Test1_HostileResponse
+  m_Name: FishingPole1
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   lines:
-  - dialogueLine: EEP! THIS IS THE WORST THING! SOB!
-    expression: 4
+  - dialogueLine: (The Fishing Line returns to its solemn duty of wrenching fish
+      from their home. Best leave it to its work.)
+    expression: 0
     validResponses: []
-  returnToPrevBranchOnEnd: 0
+  clearAction: 0
