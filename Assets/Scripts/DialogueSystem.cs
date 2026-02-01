@@ -46,6 +46,8 @@ public class DialogueSystem : MonoBehaviour
     const float kProgressCooldown = .2f;
     float currentCooldown;
 
+    [SerializeField] TextMeshProUGUI controlsText;
+
     void Awake()
     {
         ProgressAction.performed += ctx => { ProgressDialogue(ctx); };
@@ -66,11 +68,17 @@ public class DialogueSystem : MonoBehaviour
             currentCooldown -= Time.deltaTime;
     }
 
+    public void ToggleControlsText(bool textOn)
+    {
+        controlsText.gameObject.SetActive(textOn);
+    }
+
     public void ToggleActive(bool active)
     {
         uiHolder.SetActive(active);
         if(active)
         {
+            ToggleControlsText(true);
             currentCooldown = kProgressCooldown;
             ProgressAction.Enable();
         }
@@ -158,7 +166,7 @@ public class DialogueSystem : MonoBehaviour
                     //Call for stage clear here.
                     break;
                 case DialogueClearAction.INCREMENT_NPC_STATE:
-                    currentSpeaker.currentDialogueState++;
+                    currentSpeaker.UpdateNPCState(1);
                     EndDialogue();
                     break;
                 case DialogueClearAction.END_DIALOGUE:

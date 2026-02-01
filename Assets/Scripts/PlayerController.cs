@@ -47,6 +47,8 @@ public class          PlayerController : MonoBehaviour
 
     public SpriteRenderer mask;
 
+    Interactable currentInteractableTarget;
+
     public void Awake()
     {
         // assign a callback for the "jump" action.
@@ -84,6 +86,14 @@ public class          PlayerController : MonoBehaviour
 
     public void Update()
     {
+        if(InteractAction.enabled)
+            FindInteractable();
+        else if(currentInteractableTarget != null)
+        {
+            currentInteractableTarget.InteractPrompt.SetActive(false);
+            currentInteractableTarget = null;
+        }
+
         Vector2 moveAmount = MoveAction.ReadValue<Vector2>();
         if (moveAmount.x > 0)
         {
@@ -160,6 +170,18 @@ public class          PlayerController : MonoBehaviour
         if(currentInteractCooldown > 0)
             return;
 
+        if(currentInteractableTarget != null)
+        {
+            if(currentInteractableTarget.Interact(() => ChangeControlScheme(ControlSchemeType.FIELD)))
+            {
+                currentInteractCooldown = kInteractCooldown;
+                ChangeControlScheme(ControlSchemeType.DIALOGUE);
+            }
+        }
+    }
+
+    public void FindInteractable()
+    {
         Collider[] collisions = Physics.OverlapBox(boxCastCenter, BoxExtents / 2, transform.rotation);
         if(collisions != null)
         {
@@ -168,7 +190,9 @@ public class          PlayerController : MonoBehaviour
             foreach(var item in collisions)
             {
                 if(item.tag != "Interactable")
+                {
                     continue;
+                }
                 float distanceToPlayer = Vector3.Distance(transform.position, item.ClosestPoint(transform.position));
                 if(distanceToPlayer < closestDistance)
                 {
@@ -176,20 +200,30 @@ public class          PlayerController : MonoBehaviour
                     closestDistance = distanceToPlayer;
                 }
             }
+
             if(closest != null)
             {
-                Interactable interactable = closest.gameObject.GetComponentInParent<Interactable>();
-                if(interactable != null)
+                Interactable closestInteract = closest.GetComponentInParent<Interactable>();
+                if(closestInteract != null && closestInteract != currentInteractableTarget)
                 {
-                    if(interactable.Interact(()=> ChangeControlScheme(ControlSchemeType.FIELD)))
+                    if(currentInteractableTarget != null)
                     {
-                        currentInteractCooldown = kInteractCooldown;
-                        ChangeControlScheme(ControlSchemeType.DIALOGUE);
+                        currentInteractableTarget.InteractPrompt.SetActive(false);
                     }
+                    closestInteract.InteractPrompt.SetActive(true);
+                    currentInteractableTarget = closestInteract;
                 }
-                else
-                    Debug.LogError(closest.name + " has no Interactable component on its parent");
             }
+            else if(currentInteractableTarget != null)
+            {
+                currentInteractableTarget.InteractPrompt.SetActive(false);
+                currentInteractableTarget = null;
+            }
+        }
+        else if(currentInteractableTarget != null)
+        {
+            currentInteractableTarget.InteractPrompt.SetActive(false);
+            currentInteractableTarget = null;
         }
     }
 

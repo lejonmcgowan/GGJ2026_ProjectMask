@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: FishingPole1
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   lines:
-  - dialogueLine: (The Fishing Line returns to its solemn duty of wrenching fish
-      from their home. Best leave it to its work.)
+  - dialogueLine: (The Fishing Line returns to its solemn duty of luring fish from
+      their home. Best leave it to its work.)
     expression: 0
+    noMaskGiven: 0
     validResponses: []
+    maskToRemove: 0
   clearAction: 0

@@ -172,6 +172,7 @@ public class MaskSelectMenu : MonoBehaviour
             if(DialogueSystem.Instance != null && PlayerController.Instance != null)
             {
                 PlayerController.Instance.ChangeControlScheme(ControlSchemeType.MASK_SELECT);
+                DialogueSystem.Instance.ToggleControlsText(false);
             }
         }
         else
@@ -182,7 +183,10 @@ public class MaskSelectMenu : MonoBehaviour
             if(DialogueSystem.Instance != null && PlayerController.Instance != null)
             {
                 if(DialogueSystem.Instance.uiHolder.activeInHierarchy)
+                {
                     PlayerController.Instance.ChangeControlScheme(ControlSchemeType.DIALOGUE);
+                    DialogueSystem.Instance.ToggleControlsText(true);
+                }
                 else
                     PlayerController.Instance.ChangeControlScheme(ControlSchemeType.FIELD);
             }
