@@ -15,20 +15,24 @@ MonoBehaviour:
   lines:
   - dialogueLine: You're...giving me this mask? Hm...
     expression: 2
+    noMaskGiven: 0
     validResponses: []
     maskToRemove: 0
   - dialogueLine: I...feel a bit better now, thanks. Like I can finally start enjoying
       my day off instead of...stressing about every little thing...
     expression: 3
+    noMaskGiven: 1
     validResponses: []
     maskToRemove: 3
   - dialogueLine: Oh! Kitty! Are you in a better mood now too?
     expression: 3
+    noMaskGiven: 1
     validResponses: []
     maskToRemove: 0
   - dialogueLine: Eh heh! Seems my day off is finally working out now! Thanks for
       helping me cheer up, stranger!
     expression: 6
+    noMaskGiven: 1
     validResponses: []
     maskToRemove: 0
   clearAction: 3

@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using System;
 using NUnit.Framework;
 using System.Collections;
+using TMPro;
 
 [Serializable]
 public struct MaskButton
@@ -35,6 +36,34 @@ public class MaskSelectMenu : MonoBehaviour
 
     List<MaskType> unlockedMasks = new List<MaskType>();
     int selectedIndex = 0;
+
+    #region MaskStatusPrompt
+    [SerializeField] Animator MaskStatusUpdate;
+    [SerializeField] Image GotMaskImage;
+    [SerializeField] TextMeshProUGUI MaskStatusText;
+    [SerializeField] Image GaveMaskImage;
+
+    const string kPromptTrigger = "Show";
+
+    void ShowMaskUpdate(MaskType mask, Sprite maskSprite, bool obtained)
+    {
+        if(obtained)
+        {
+            GaveMaskImage.gameObject.SetActive(false);
+            GotMaskImage.gameObject.SetActive(true);
+            GotMaskImage.sprite = maskSprite;
+            MaskStatusText.text = string.Format("Got a new mask!\n\"{0}\"!",mask.ToString());
+        }
+        else
+        {
+            GaveMaskImage.gameObject.SetActive(true);
+            GotMaskImage.gameObject.SetActive(false);
+            GaveMaskImage.sprite = maskSprite;
+            MaskStatusText.text = string.Format("Delivered the\"{0}\" mask!", mask.ToString());
+        }
+        MaskStatusUpdate.SetTrigger(kPromptTrigger);
+    }
+    #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -82,6 +111,7 @@ public class MaskSelectMenu : MonoBehaviour
             {
                 b.maskIcon.gameObject.SetActive(true);
                 unlockedMasks.Add(mask);
+                ShowMaskUpdate(mask, b.maskIcon.sprite, true);
                 return;
             }
         }
@@ -108,6 +138,7 @@ public class MaskSelectMenu : MonoBehaviour
                     else
                         PlayerController.Instance.SetExpression(MaskType.NONE);
                 }
+                ShowMaskUpdate(mask, b.maskIcon.sprite, false);
                 return;
             }
         }

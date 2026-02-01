@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: faces.Array.data[0].faceSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4e15da7d9ef33d44f8489466a241c936, type: 3}
+      objectReference: {fileID: 21300000, guid: 9ecef82d21ab277498daf5ae8d8fb300, type: 3}
     - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: faces.Array.data[1].expression
       value: 5
@@ -79,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: faces.Array.data[1].faceSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4e15da7d9ef33d44f8489466a241c936, type: 3}
+      objectReference: {fileID: 21300000, guid: ee106f182aba18945a95c2cbfb0b80bd, type: 3}
     - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: 'tempInteractText.Array.data[0]'
       value: 
@@ -92,17 +92,9 @@ PrefabInstance:
       propertyPath: 'interactDialogues.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: dbf4e0e6a1f0b0348be5e30022675a04, type: 2}
-    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 45.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -31.8
-      objectReference: {fileID: 0}
     - target: {fileID: 6426188445707010314, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_Name
-      value: NPC_FishingPole Variant
+      value: NPC_FishingPole
       objectReference: {fileID: 0}
     - target: {fileID: 7192746217998622130, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_Sprite

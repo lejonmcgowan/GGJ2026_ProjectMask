@@ -6,6 +6,7 @@ public struct NPCDialogueLine
 {
     public string dialogueLine;
     public MaskType expression;
+    public bool noMaskGiven;
     public MaskReactions[] validResponses;
     public MaskType maskToRemove;
 }

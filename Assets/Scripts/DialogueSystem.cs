@@ -99,7 +99,8 @@ public class DialogueSystem : MonoBehaviour
 
     void SetSpeakerDialogue(NPCDialogueLine line)
     {
-        MaskSelectMenu.Instance.UnlockMask(line.expression);
+        if(!line.noMaskGiven)
+            MaskSelectMenu.Instance.UnlockMask(line.expression);
         if(line.maskToRemove != MaskType.NONE)
         {
             MaskSelectMenu.Instance.RemoveMask(line.maskToRemove);
