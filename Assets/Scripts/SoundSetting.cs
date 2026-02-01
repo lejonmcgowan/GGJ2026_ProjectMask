@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum SoundAction
@@ -48,8 +49,14 @@ public class SoundMenu : MonoBehaviour
         BGMSlider.onValueChanged.AddListener(delegate {OnBGMVolumeChanged();});
         SFXSlider.onValueChanged.AddListener(delegate {OnSFXVolumeChanged();});
         DefaultsButton.onClick.AddListener(ResetDefaultVolumes);
+        BackButton.onClick.AddListener(GoBack);
     }
-    
+
+    private void GoBack()
+    {
+        SceneManager.LoadScene("Scenes/MainMenu");
+    }
+
     void PlaySfx(AudioClip clip)
     {
         if(audioPlayer != null)
