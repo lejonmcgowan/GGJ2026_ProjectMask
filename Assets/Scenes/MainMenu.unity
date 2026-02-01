@@ -395,7 +395,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -504,6 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5005c8c96692a8c49918e71bbe43e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  AudioSource: {fileID: 0}
 --- !u!1001 &831731351552328966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -856,6 +857,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7447085647983593645, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
+      propertyPath: AltConfirmAction.m_Name
+      value: Alt Confirm
+      objectReference: {fileID: 0}
     - target: {fileID: 8691157167973167470, guid: f439f891a6ccab44a8202b294d4dcee1, type: 3}
       propertyPath: m_Name
       value: QuitButton
@@ -911,7 +916,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
