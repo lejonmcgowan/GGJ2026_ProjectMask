@@ -225,8 +225,8 @@ Transform:
   m_GameObject: {fileID: 6821595469644978689}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: 0, y: 1.64, z: 0}
+  m_LocalScale: {x: 0.614925, y: 0.614925, z: 2.4597}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3023054625322207588}
@@ -281,7 +281,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: d76cbf0371774ea408a9905ad75bac70, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 248f270b9611265408c0604e36fcb8e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -339,9 +339,9 @@ Transform:
   m_GameObject: {fileID: 7807382505766654727}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.26, y: -1.75, z: 0}
+  m_LocalScale: {x: 0.45869, y: 0.45869, z: 0.45869}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4987115659716113349}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -557,8 +557,6 @@ MonoBehaviour:
     faceSprite: {fileID: 21300000, guid: ff47038deccd4164f980c011e1e9ae50, type: 3}
   - expression: 5
     faceSprite: {fileID: 21300000, guid: 6c0cb6b72e3f1734ba03d30a54948b78, type: 3}
-  - expression: 4
-    faceSprite: {fileID: 21300000, guid: ade0e4dbddd61804abcbffcc2f4798f8, type: 3}
   - expression: 3
     faceSprite: {fileID: 21300000, guid: 182d9f20b5e969a449a8188a3e0a12d7, type: 3}
   currentMask: 0

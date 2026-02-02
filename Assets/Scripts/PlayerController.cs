@@ -48,6 +48,7 @@ public class          PlayerController : MonoBehaviour
     public SpriteRenderer mask;
 
     Interactable currentInteractableTarget;
+    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
     public void Awake()
     {
@@ -125,7 +126,8 @@ public class          PlayerController : MonoBehaviour
 
         boxCastCenter = transform.position + new Vector3(BoxExtents.x / 2 * facing.x, BoxExtents.y / 2, BoxExtents.z / 2 * facing.y);
 
-        var rbVel = Rigidbody.linearVelocity;
+       
+        
         
         if (transform.position.z < zLimits.x && moveAmount.y < 0 || transform.position.z > zLimits.y && moveAmount.y > 0)
         {
@@ -136,6 +138,8 @@ public class          PlayerController : MonoBehaviour
         Rigidbody.linearVelocity =
                 new Vector3(moveAmount.x * moveSpeed.x, Rigidbody.linearVelocity.y, moveAmount.y * moveSpeed.y);
 
+        SpriteAnimator.SetBool(IsMoving, Rigidbody.linearVelocity.magnitude > 0.1f);
+        
         if(InteractAction.enabled && currentInteractCooldown > 0)
             currentInteractCooldown -= Time.deltaTime;
             
