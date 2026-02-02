@@ -450,6 +450,8 @@ MonoBehaviour:
   GotMaskImage: {fileID: 7106119360800238859}
   MaskStatusText: {fileID: 726139424482565793}
   GaveMaskImage: {fileID: 1191396782447657049}
+  navSFX: {fileID: 8300000, guid: f61d5bc9298134c459a3b8fe847d9230, type: 3}
+  confirmSFX: {fileID: 8300000, guid: e405df11306a68846ac5dd79d8cfc5b0, type: 3}
 --- !u!223 &7570546468449654645
 Canvas:
   m_ObjectHideFlags: 0

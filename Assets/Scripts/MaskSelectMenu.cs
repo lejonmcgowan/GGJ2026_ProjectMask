@@ -85,7 +85,7 @@ public class MaskSelectMenu : MonoBehaviour
                 b.maskIcon.gameObject.SetActive(false);
             }
         }
-        ToggleActive(false);
+        ToggleActive(false, isInitial: true);
         ToggleAction.Enable();
 
         if(masks.Length > 0)
@@ -151,8 +151,12 @@ public class MaskSelectMenu : MonoBehaviour
         selector.gameObject.SetActive(true);
     }
 
-    public void ToggleActive(bool active)
+    public void ToggleActive(bool active, bool isInitial = false)
     {
+        if(!isInitial)
+        {
+            SFXManager.Instance.PlayConfirmSFX();
+        }
         currentCooldown = kToggleCooldown;
         uiHolder.SetActive(active);
         for(int i = selectedIndex; i >= 0; i--)
@@ -233,6 +237,7 @@ public class MaskSelectMenu : MonoBehaviour
             selectedIndex = index;
             selectedMask = masks[index].mask;
             StartCoroutine(MoveSelector(index));
+            SFXManager.Instance.PlaySelectSFX();
             return true;
         }
         return false;

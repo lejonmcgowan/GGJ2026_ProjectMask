@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -20,11 +21,6 @@ public class MainMenu : MonoBehaviour
     public Image previewImage;
     public TextMeshProUGUI previewText;
     public Image protagMask;
-
-    public AudioClip menuHighlightSfx;
-    public AudioClip menuConfirmSfx;
-
-    AudioSource audioPlayer;
 
     bool confirming = false;
 
@@ -49,9 +45,13 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        audioPlayer = GetComponent<AudioSource>();
         AltConfirmAction.Enable();
         currentCooldown = kSelectCooldown;
+    }
+
+    void OnDisable()
+    {
+        AltConfirmAction.Disable();
     }
 
     void Update()
@@ -83,7 +83,7 @@ public class MainMenu : MonoBehaviour
                 protagMask.sprite = quitMask;
                 break;
         }
-        PlaySfx(menuHighlightSfx);
+        SFXManager.Instance.PlaySelectSFX();
     }
 
     public void RunConfirm(MainMenuButton button)
@@ -91,7 +91,7 @@ public class MainMenu : MonoBehaviour
         if(!confirming)
         {
             confirming = true;
-            PlaySfx(menuConfirmSfx);
+            SFXManager.Instance.PlayConfirmSFX();
             switch(button.myAction)
             {
                 case ButtonAction.STAGE_1:
@@ -124,15 +124,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(scenePath);
     }
 
-    void PlaySfx(AudioClip clip)
-    {
-        if(audioPlayer != null)
-        {
-            audioPlayer.clip = clip;
-            audioPlayer.Play();
-        }
-    }
-
     void OnAltConfirm(InputAction.CallbackContext context)
     {
         if(currentCooldown > 0) 
@@ -142,7 +133,7 @@ public class MainMenu : MonoBehaviour
 
         if(CreditsScreen.activeInHierarchy)
         {
-            PlaySfx(menuConfirmSfx);
+            SFXManager.Instance.PlayConfirmSFX();
             CreditsScreen.SetActive(false);
         }
         else
