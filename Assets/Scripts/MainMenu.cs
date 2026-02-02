@@ -32,6 +32,7 @@ public class MainMenu : MonoBehaviour
 
     public InputAction AltConfirmAction;
     public GameObject CreditsScreen;
+    public GameObject ButtonGroup;
 
     MainMenuButton currentSelectedButton;
 
@@ -107,6 +108,7 @@ public class MainMenu : MonoBehaviour
                     StartCoroutine(LoadLevel("Scenes/SoundSettingsMenu"));
                     break;
                 case ButtonAction.CREDITS:
+                    ButtonGroup.gameObject.SetActive(false);
                     CreditsScreen.gameObject.SetActive(true);
                     confirming = false;
                     break;
@@ -135,6 +137,8 @@ public class MainMenu : MonoBehaviour
         {
             SFXManager.Instance.PlayConfirmSFX();
             CreditsScreen.SetActive(false);
+            ButtonGroup.SetActive(true);
+            HighlightOption(currentSelectedButton);
         }
         else
         {

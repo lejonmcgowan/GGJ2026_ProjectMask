@@ -13,6 +13,7 @@ public struct MaskButton
 {
     public MaskType mask;
     public Image maskIcon;
+    public Sprite maskFace;
 }
 
 public class MaskSelectMenu : MonoBehaviour
@@ -39,8 +40,10 @@ public class MaskSelectMenu : MonoBehaviour
 
     #region MaskStatusPrompt
     [SerializeField] Animator MaskStatusUpdate;
+    [SerializeField] GameObject GotMaskParent;
     [SerializeField] Image GotMaskImage;
     [SerializeField] TextMeshProUGUI MaskStatusText;
+    [SerializeField] GameObject GaveMaskParent;
     [SerializeField] Image GaveMaskImage;
 
     const string kPromptTrigger = "Show";
@@ -49,15 +52,15 @@ public class MaskSelectMenu : MonoBehaviour
     {
         if(obtained)
         {
-            GaveMaskImage.gameObject.SetActive(false);
-            GotMaskImage.gameObject.SetActive(true);
+            GaveMaskParent.SetActive(false);
+            GotMaskParent.SetActive(true);
             GotMaskImage.sprite = maskSprite;
             MaskStatusText.text = string.Format("Got a new mask!\n\"{0}\"!",mask.ToString());
         }
         else
         {
-            GaveMaskImage.gameObject.SetActive(true);
-            GotMaskImage.gameObject.SetActive(false);
+            GaveMaskParent.SetActive(true);
+            GotMaskParent.SetActive(false);
             GaveMaskImage.sprite = maskSprite;
             MaskStatusText.text = string.Format("Delivered the \"{0}\" mask!", mask.ToString());
         }
@@ -111,7 +114,7 @@ public class MaskSelectMenu : MonoBehaviour
             {
                 b.maskIcon.gameObject.SetActive(true);
                 unlockedMasks.Add(mask);
-                ShowMaskUpdate(mask, b.maskIcon.sprite, true);
+                ShowMaskUpdate(mask, b.maskFace, true);
                 return;
             }
         }
@@ -137,7 +140,7 @@ public class MaskSelectMenu : MonoBehaviour
                     else
                         PlayerController.Instance.SetExpression(MaskType.NONE);
                 }
-                ShowMaskUpdate(mask, b.maskIcon.sprite, false);
+                ShowMaskUpdate(mask, b.maskFace, false);
                 return;
             }
         }

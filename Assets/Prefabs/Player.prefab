@@ -557,8 +557,6 @@ MonoBehaviour:
     faceSprite: {fileID: 21300000, guid: ff47038deccd4164f980c011e1e9ae50, type: 3}
   - expression: 5
     faceSprite: {fileID: 21300000, guid: 6c0cb6b72e3f1734ba03d30a54948b78, type: 3}
-  - expression: 4
-    faceSprite: {fileID: 21300000, guid: ade0e4dbddd61804abcbffcc2f4798f8, type: 3}
   - expression: 3
     faceSprite: {fileID: 21300000, guid: 182d9f20b5e969a449a8188a3e0a12d7, type: 3}
   currentMask: 0
