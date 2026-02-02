@@ -13,8 +13,10 @@ public enum SoundAction
     BACK
 }
 
+
 public class SoundMenu : MonoBehaviour
 {
+    private readonly float VOL_THRESHOLD = -47;
     public AudioClip menuHighlightSfx;
     public AudioClip menuConfirmSfx;
 
@@ -69,16 +71,45 @@ public class SoundMenu : MonoBehaviour
     public void OnMasterVolumeChanged()
     {
         Mixer.SetFloat("MASTER", MasterSlider.value);
-    }
+        
+        GameObject SFX = GameObject.Find("UISFX");
+        AudioSource sourceSFX = SFX?.GetComponent<AudioSource>();
+        
+        GameObject BGM = GameObject.Find("BGM");
+        AudioSource sourceBGM = BGM?.GetComponent<AudioSource>();
+        
+        if (sourceBGM)
+            sourceBGM.volume = MasterSlider.value < VOL_THRESHOLD ? 0 : 1;
+        if(sourceSFX)
+            sourceSFX.volume = MasterSlider.value < VOL_THRESHOLD ? 0 : 1;
+        
+    } 
     
     public void OnSFXVolumeChanged()
     {
         Mixer.SetFloat("SFX", SFXSlider.value);
+        
+        GameObject SFX = GameObject.Find("UISFX");
+        AudioSource source = SFX?.GetComponent<AudioSource>();
+        
+        if (!source)
+            return;
+        
+        source.volume = SFXSlider.value < VOL_THRESHOLD ? 0 : 1;
+        
     }
     
     public void OnBGMVolumeChanged()
     {
         Mixer.SetFloat("BGM", BGMSlider.value);
+        
+        GameObject BGM = GameObject.Find("BGM");
+        AudioSource source = BGM?.GetComponent<AudioSource>();
+        
+        if (!source)
+            return;
+        
+        source.volume = BGMSlider.value < VOL_THRESHOLD ? 0 : 1;
     }
 
     public void ResetDefaultVolumes()

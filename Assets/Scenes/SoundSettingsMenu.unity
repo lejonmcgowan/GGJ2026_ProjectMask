@@ -614,8 +614,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289460991
+  m_fontColor: {r: 1, g: 0.98039216, b: 0.67058825, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1266,6 +1266,18 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 3469119108069579482, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.67058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469119108069579482, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469119108069579482, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4289460991
+      objectReference: {fileID: 0}
     - target: {fileID: 3729155962772294750, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1435,6 +1447,18 @@ PrefabInstance:
     - target: {fileID: 3469119108069579482, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
       propertyPath: m_text
       value: BGM Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469119108069579482, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.67058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469119108069579482, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469119108069579482, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4289460991
       objectReference: {fileID: 0}
     - target: {fileID: 3729155962772294750, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2013,6 +2037,18 @@ PrefabInstance:
     - target: {fileID: 3469119108069579482, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
       propertyPath: m_text
       value: Master Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469119108069579482, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.67058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469119108069579482, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469119108069579482, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4289460991
       objectReference: {fileID: 0}
     - target: {fileID: 3729155962772294750, guid: d3abe49c4cc05bd4481a515d343da767, type: 3}
       propertyPath: m_AnchorMax.x
