@@ -124,7 +124,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void SetPlayerFace(MaskType mask)
     {
-        playerFaceSprite.sprite = PlayerController.Instance.GetExpression(mask);
+        playerFaceSprite.sprite = PlayerController.Instance.GetDialougeExpression(mask);
         PlayerController.Instance.SetExpression(mask);
     }
 
@@ -166,6 +166,7 @@ public class DialogueSystem : MonoBehaviour
                     break;
                 case DialogueClearAction.CLEAR_STAGE:
                     EndDialogue();
+                    currentSpeaker.UpdateNPCState(1);
                     StageClearMenu.Instance.ToggleActive(true);
                     //Call for stage clear here.
                     break;

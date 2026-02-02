@@ -65,6 +65,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 5721a7c802bc32843a8dae1708b45578, type: 3}
     - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: overworldStates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: tempInteractText.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -72,6 +76,18 @@ PrefabInstance:
       propertyPath: interactDialogues.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: 'overworldStates.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: d492b7013a55d1848a4addc309647f0a, type: 3}
+    - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: 'overworldStates.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: d492b7013a55d1848a4addc309647f0a, type: 3}
+    - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: 'overworldStates.Array.data[2]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 3f5caf373a09a4549b1c04173475fa9a, type: 3}
     - target: {fileID: 2055407944260258409, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: faces.Array.data[0].expression
       value: 0
@@ -118,11 +134,15 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 9124fc7ac66611c4fb42000b0a641c0f, type: 2}
     - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.614925
       objectReference: {fileID: 0}
     - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.614925
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459443706517751713, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6426188445707010314, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_Name
@@ -131,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 7192746217998622130, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 94bb5217887c9e44d8f2f9d5d5f9256a, type: 3}
+      objectReference: {fileID: 21300000, guid: d492b7013a55d1848a4addc309647f0a, type: 3}
     - target: {fileID: 7192746217998622130, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -145,7 +165,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1526633591486420019, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd7a71c08c50c84586ea5b331ed36fb, type: 3}

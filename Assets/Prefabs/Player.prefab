@@ -339,8 +339,8 @@ Transform:
   m_GameObject: {fileID: 7807382505766654727}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.26, y: -1.75, z: 0}
-  m_LocalScale: {x: 0.45869, y: 0.45869, z: 0.45869}
+  m_LocalPosition: {x: 0.173, y: 0.61, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4987115659716113349}
@@ -394,7 +394,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 5650a8dc19aab2e4ea65f77db62311f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75d4be5e3993df44dabbd872da9267f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -550,11 +550,22 @@ MonoBehaviour:
   inDialogue: 0
   faces:
   - expression: 0
+    faceSprite: {fileID: 21300000, guid: 56b0b5c6d0e14774787c755482e22e67, type: 3}
+  - expression: 2
+    faceSprite: {fileID: 21300000, guid: 9497b4eb24d5643469f5fc0abf1ed368, type: 3}
+  - expression: 1
+    faceSprite: {fileID: 21300000, guid: 75d4be5e3993df44dabbd872da9267f9, type: 3}
+  - expression: 5
+    faceSprite: {fileID: 21300000, guid: ee218392d4bb2594b862bf5633e14d92, type: 3}
+  - expression: 3
+    faceSprite: {fileID: 21300000, guid: fb22e1080c55d2949ae3d0f47e702d9c, type: 3}
+  dialogueFaces:
+  - expression: 0
     faceSprite: {fileID: 21300000, guid: 8c0be171f06d40b40979e077e07519b2, type: 3}
   - expression: 2
-    faceSprite: {fileID: 21300000, guid: 5650a8dc19aab2e4ea65f77db62311f7, type: 3}
+    faceSprite: {fileID: 21300000, guid: 4d7b42de16e6a6348bbd8563664dffbc, type: 3}
   - expression: 1
-    faceSprite: {fileID: 21300000, guid: ff47038deccd4164f980c011e1e9ae50, type: 3}
+    faceSprite: {fileID: 21300000, guid: 5650a8dc19aab2e4ea65f77db62311f7, type: 3}
   - expression: 5
     faceSprite: {fileID: 21300000, guid: 6c0cb6b72e3f1734ba03d30a54948b78, type: 3}
   - expression: 3

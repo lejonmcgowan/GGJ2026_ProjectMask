@@ -43,6 +43,7 @@ public class          PlayerController : MonoBehaviour
     float currentInteractCooldown;
 
     public DialogueFace[] faces;
+    public DialogueFace[] dialogueFaces;
     public MaskType currentMask = MaskType.NONE;
 
     public SpriteRenderer mask;
@@ -250,6 +251,17 @@ public class          PlayerController : MonoBehaviour
     public Sprite GetExpression(MaskType expression)
     {
         foreach(DialogueFace face in faces)
+        {
+            if(face.expression == expression)
+            {
+                return face.faceSprite;
+            }
+        }
+        return null;
+    }
+    public Sprite GetDialougeExpression(MaskType expression)
+    {
+        foreach(DialogueFace face in dialogueFaces)
         {
             if(face.expression == expression)
             {
