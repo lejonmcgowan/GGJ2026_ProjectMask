@@ -16,7 +16,7 @@ public enum SoundAction
 
 public class SoundMenu : MonoBehaviour
 {
-    private readonly float VOL_THRESHOLD = -47;
+    private readonly float VOL_THRESHOLD = -37;
     public AudioClip menuHighlightSfx;
     public AudioClip menuConfirmSfx;
 
