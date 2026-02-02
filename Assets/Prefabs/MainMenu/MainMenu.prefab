@@ -62,8 +62,6 @@ MonoBehaviour:
   previewImage: {fileID: 6681520139939131843}
   previewText: {fileID: 8328706038633322022}
   protagMask: {fileID: 1111646127748611466}
-  menuHighlightSfx: {fileID: 8300000, guid: f61d5bc9298134c459a3b8fe847d9230, type: 3}
-  menuConfirmSfx: {fileID: 8300000, guid: e405df11306a68846ac5dd79d8cfc5b0, type: 3}
   caseOpenMask: {fileID: 21300000, guid: 8c0be171f06d40b40979e077e07519b2, type: 3}
   caseCloseMask: {fileID: 21300000, guid: 182d9f20b5e969a449a8188a3e0a12d7, type: 3}
   optionsMask: {fileID: 21300000, guid: 6c0cb6b72e3f1734ba03d30a54948b78, type: 3}
@@ -719,10 +717,10 @@ RectTransform:
   - {fileID: 1417821833264939850}
   m_Father: {fileID: 989154153710413810}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5048246848261820625
 GameObject:

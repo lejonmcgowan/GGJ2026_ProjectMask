@@ -56,7 +56,7 @@ public class DialogueSystem : MonoBehaviour
     void Start()
     {
         Instance = this;
-        ToggleActive(false);
+        ToggleActive(false, isInitial: true);
     }
 
     void Update()
@@ -73,8 +73,12 @@ public class DialogueSystem : MonoBehaviour
         controlsText.gameObject.SetActive(textOn);
     }
 
-    public void ToggleActive(bool active)
+    public void ToggleActive(bool active, bool isInitial = false)
     {
+        if((!isInitial))
+        {
+            SFXManager.Instance.PlayConfirmSFX();
+        }
         uiHolder.SetActive(active);
         if(active)
         {
@@ -140,7 +144,7 @@ public class DialogueSystem : MonoBehaviour
     public void ProgressDialogue(InputAction.CallbackContext context)
     {
         if(currentCooldown > 0 || MaskSelectMenu.Instance.uiHolder.activeInHierarchy) return;
-
+        SFXManager.Instance.PlaySelectSFX();
         dialogueBranchChain[dialogueBranchChain.Count-1].currentLineIndex++;
         if(currentDialogue.lines.Length <= dialogueBranchChain[dialogueBranchChain.Count - 1].currentLineIndex)
         {

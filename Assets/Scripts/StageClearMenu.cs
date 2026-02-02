@@ -79,6 +79,7 @@ public class StageClearMenu : MonoBehaviour
         }
 
         confirmed = true;
+        SFXManager.Instance.PlayConfirmSFX();
         StartCoroutine(LoadMainMenu());
     }
 
